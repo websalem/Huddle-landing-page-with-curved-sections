@@ -1,34 +1,39 @@
+import FooterSection from "./FooterSection";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaSquareTwitter } from "react-icons/fa6";
 import logoWeiss from '../assets/images/logo-weiss.svg';
-import { BsTelephoneInboundFill } from "react-icons/bs";
-import { MdMail } from "react-icons/md";
-
+import { useState } from "react";
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState(false);
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+    const regEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    if (!regEx.test(email)) {
+      setError(true);
+    }
+  }
   return (
     <footer>
         <div className="container">
-            <div className="footer-1">
-              <div className="footer-logo">
-                <img src={logoWeiss} alt="white huddle Logo" />
-              </div>
-              <div className="footer-1-text">
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur laborum consequuntur in, nihil maxime atque quisquam, impedit officiis voluptas excepturi necessitatibus molestiae dolor, dolore quod? Libero illo laudantium ex eum?</p>
-              </div>
-              <div className="contacts">
-                <p><BsTelephoneInboundFill /> Phone: +1543-123-4567 </p>
-                <p><MdMail /> Mail: example@huddle.com</p>
-              </div>
-            </div>
-            <div className="footer-2">
-              <div className="footer-2-text">
-              <h2>NEWSLETTER</h2>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate delectus illum, mollitia veritatis libero at ullam assumenda facere sed praesentium animi laudantium sequi aspernatur reiciendis, eaque nisi perspiciatis sunt necessitatibus.</p>
-              </div>
-              <div className="newsletter">
-                <form>
-                  <input type="email" name='email' id='email' />
-                  <button type='submit'>Subscribe</button>
-                </form>
-              </div>
+            <FooterSection 
+            logo={logoWeiss}
+            text = {'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur laborum consequuntur in, nihil maxime atque quisquam. '}
+            phone={'Phone: +1543-123-4567'}
+            />
+           <FooterSection title={'NEWSLETTER'}
+           text={'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur laborum consequuntur in, nihil maxime atque quisquam.'}
+           newsletter={ <form>
+            <input type="email" name='email' id='email' onChange={(e)=>{setEmail(e.target.value)}}  value={email}/>
+            <button className="btn" type='submit' onClick={handleSubmit}>Subscribe</button>
+            {error && <div className="error"><p>Check your email please</p></div>}
+          </form>}
+           />
+            <div className="social-media">
+          <FaFacebookSquare/>
+          <FaInstagramSquare/>
+          <FaSquareTwitter/>
             </div>
         </div>
     </footer>

@@ -16,8 +16,12 @@
             color: white;
             width:390px;
             padding:1rem;
+            border-radius: 2rem;
             margin:auto;
             font-size: 1rem;
+            &:hover{
+                background-color: $LightPink;
+            }
         }
         .hero-img{
             margin-top: 120px;
@@ -30,7 +34,8 @@
             justify-items: center;
             h2{
                 font-size: 5rem;
-                margin-bottom: 25px;
+                margin-bottom: 0;
+                font-family: $bodyFont;
             }
             p{
                 font-size: 14px;
@@ -38,6 +43,37 @@
             }
             img{
                 max-width: 40px;
+            }
+        }
+    }
+}
+
+@media (max-width:768px){
+    .hero{
+        padding-top: 100px;
+        .container{
+            h1{
+                margin-bottom: 30px;
+                font-size: 1.8rem;
+            }
+            p{
+                margin-bottom: 60px;
+                max-width: 400px;
+            }
+            button{
+                width:250px;
+            }
+            .hero-statistics{
+                grid-template-columns: repeat(1, 1fr);
+                h2{
+                    font-weight: 600;
+                }
+                p{
+                    text-align: left;
+                }
+                img{
+                    max-width: 40px;
+                }
             }
         }
     }
