@@ -1,0 +1,29 @@
+*, *::before, *::after{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+body{
+    font-family: $bodyFont;
+}
+h1,h2,h3,h4{
+    font-family: $headingFont;
+}
+.container{
+    padding: 0 1rem;
+    width:100%;
+    max-width: 1280px;
+    display: grid;
+    margin:auto;
+}
+.btn{
+    appearance: none;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 3px rgba(0,0,0,.5);
+    cursor: pointer;
+}
+img{
+    width: 100%;
+    display: block;
+}

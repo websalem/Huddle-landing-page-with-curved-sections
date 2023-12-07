@@ -1,0 +1,80 @@
+.page-section{
+    padding:100px 0;
+    margin-top: 280px;
+    margin-bottom: 280px;
+    .container{
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 150px;
+        align-items: center;
+        .page-section-text{
+            h3{
+                font-size: 1.75rem;
+                margin-bottom: 20px;
+            }
+        }
+        .page-section-img{
+            img{
+                max-width: 500px;
+            }
+        }
+    }
+    &:nth-of-type(1){
+        position: relative;
+        background-color: $VeryPaleBlue;
+        &::before{
+            content: "";
+            background-image: url(../images/bg-section-top-desktop-1.svg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: absolute;
+            top:-150px;
+            left: 0;
+            width: 100%;
+            height: 150px;
+        }
+        &::after{
+            content: "";
+            background-image: url(../images/bg-section-bottom-desktop-1.svg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: absolute;
+            bottom:-150px;
+            left: 0;
+            width: 100%;
+            height: 150px;
+        }
+    }
+    &:nth-of-type(3){
+        position: relative;
+        background-color: $VeryPaleBlue;
+        &::before{
+            content: "";
+            background-image: url(../images/bg-section-top-desktop-2.svg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: absolute;
+            top:-150px;
+            left: 0;
+            width: 100%;
+            height: 150px;
+        }
+        &::after{
+            content: "";
+            background-image: url(../images/bg-section-bottom-desktop-2.svg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: absolute;
+            bottom:-150px;
+            left: 0;
+            width: 100%;
+            height: 150px;
+        }
+    }
+    &:nth-of-type(2){
+        .container{
+            .page-section-text{
+                order:2;
+            }
+        }
+    }
+}
